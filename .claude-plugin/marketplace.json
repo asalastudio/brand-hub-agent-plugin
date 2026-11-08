@@ -1,0 +1,12 @@
+{
+  "name": "asala",
+  "owner": { "name": "Asala", "email": "jordan@asala.ai" },
+  "metadata": { "description": "Asala Brand Hub plugins for coding agents." },
+  "plugins": [
+    {
+      "name": "asala-brand-hub",
+      "source": "./plugins/asala-brand-hub",
+      "description": "Work on a client's code with their brand from the Asala Brand Hub: brand kit first, BRAND.md, file work into boards, never approve."
+    }
+  ]
+}

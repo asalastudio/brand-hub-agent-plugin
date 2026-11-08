@@ -1,0 +1,7 @@
+{
+  "name": "asala-brand-hub",
+  "version": "0.1.0",
+  "description": "Work on a client's code with their brand from the Asala Brand Hub: brand kit first, BRAND.md, file work into boards, never approve.",
+  "author": { "name": "Asala", "email": "jordan@asala.ai" },
+  "keywords": ["brand", "mcp", "agency", "design-system"]
+}
