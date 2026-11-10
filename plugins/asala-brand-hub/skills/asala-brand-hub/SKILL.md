@@ -39,3 +39,42 @@ Keep it short and factual. Sections, in this order:
 - Set Status "In review" only when the user asks for review. You can never mark anything Approved: approval is a
   person's sign-off in the hub.
 - Never write the hub API key into the repository, BRAND.md, commit messages or chat.
+
+## More of the hub you can use
+
+- **Skills**: `list_skills` returns the team's reusable instructions (e.g. "Product copy", "Instagram carousel").
+  When one fits the task, follow it. `save_skill` adds or improves one for the whole team.
+- **Inbox**: `list_inbox` shows files waiting to be sorted, with the hub's filing suggestion; `file_inbox_item`
+  files one into its board with tags.
+- **Canvases**: `list_canvases`, `get_canvas`, `create_canvas`, `update_canvas` lay out moodboards and layouts
+  from hub files, notes, text, shapes and frames (see "Designing on a canvas" above). To rearrange, send
+  `replace_items` with the `revision` you read.
+## Designing on a canvas (flyers, posts, layouts)
+
+People and agents edit the same canvas with the same pieces, so build it the way a designer would leave it for
+the next person. The brand kit decides the look; the canvas only arranges it.
+
+- **One page, one frame.** Put the design inside a `frame` with a real size (`a4`, `a5`, `letter`, `ig-post`, …).
+  People export that frame as PNG, PDF or print PDF. Give the frame page guides
+  (`grid: {margin, columns, gutter}`, fractions of the frame width) and place pieces on the margins and columns.
+- **Type comes from the kit.** Use the kit's fonts as `family` and its colors as hex values; never pick a new font
+  or color. If the kit has a "Text styles" section, set each text's `styleId` to the style it follows and copy that
+  style's font, weight, line height, letter spacing and case onto the text. Size and color are yours to choose.
+- **Start from a template when one fits.** `list_canvases` shows them; read it with `get_canvas` and build the new
+  canvas from its items, changing words and images, not the layout.
+- **Locked pieces are decisions.** Never move, restyle or remove an item with `locked: true`. If the task needs it
+  changed, say so and leave it for a person.
+- **Leave it editable.** Real text stays text (never baked into an image), one text box per thought, thin rules as
+  1 to 2px shapes, related pieces sharing a `group`, and a short `name` on anything a person will look for in the
+  layers list. Don't stack near-duplicates; `hidden: true` is for alternates you want kept.
+- **Facts come from the client profile.** Dates, prices, places and names must match `get_client_profile`. If two
+  sources disagree, put a `note` beside the page saying what to confirm instead of choosing silently.
+- **Generated images are artwork, not layout.** Use `generate_media` for the picture only, with no words in it, then
+  set the type on the canvas.
+
+- **Generate**: `generate_media` makes images, edits, SVG, GIFs and video with the brand kit applied, saved into a
+  board; check progress with `list_generations`. It spends the client's AI budget, so say what you will make before
+  large batches.
+- **Automations**: `list_automations` and `save_automation` set up recurring tasks (cron schedule, optional skill).
+- **New client** (Asala staff, signed in to all clients): `create_workspace`, after confirming the name with the user.
+- You cannot permanently delete anything or change people, API keys or security settings.
